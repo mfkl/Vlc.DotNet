@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -45,6 +46,15 @@ namespace Samples.Wpf.Advanced
             };
 
             control.SourceProvider.MediaPlayer.Play(new Uri("http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"));
+
+            control.SourceProvider.MediaPlayer.OnRecord += MediaPlayer_OnRecord;
+            Debug.Assert(control.SourceProvider.MediaPlayer.Record(true, vlcLibDirectory.Parent.Parent.FullName));
+        }
+
+        private void MediaPlayer_OnRecord(object sender, Vlc.DotNet.Core.VlcMediaPlayerRecordEventArgs e)
+        {
+            var recordingState = e.Record ? "started" : "stopped";
+            Debug.WriteLine($"recording {recordingState} at path {e.FileName}");
         }
 
         private void OnStopButtonClick(object sender, RoutedEventArgs e)

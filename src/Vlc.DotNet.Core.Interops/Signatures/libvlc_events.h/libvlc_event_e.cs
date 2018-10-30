@@ -43,6 +43,7 @@ namespace Vlc.DotNet.Core.Interops.Signatures
         MediaPlayerAudioVolume,
         MediaPlayerAudioDevice,
         MediaPlayerChapterChanged,
+        MediaPlayerRecordChanged,
 
         MediaListItemAdded = 0x200,
         MediaListWillAddItem,

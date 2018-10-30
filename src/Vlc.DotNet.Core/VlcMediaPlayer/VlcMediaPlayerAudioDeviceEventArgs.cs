@@ -21,4 +21,17 @@ namespace Vlc.DotNet.Core
         /// </summary>
         public string Device { get; }
     }
+
+    
+    public class VlcMediaPlayerRecordEventArgs : EventArgs
+    {
+        public VlcMediaPlayerRecordEventArgs(string filename, bool record)
+        {
+            FileName = filename;
+            Record = record;
+        }
+
+        public string FileName { get; }
+        public bool Record { get; }
+    }
 }

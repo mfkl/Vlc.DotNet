@@ -392,6 +392,7 @@ namespace Vlc.DotNet.Core
             Manager.AttachEvent(vlcEventManager, EventTypes.MediaPlayerAudioVolume, myOnMediaPlayerAudioVolumeInternalEventCallback = OnMediaPlayerAudioVolumeInternal);
             Manager.AttachEvent(vlcEventManager, EventTypes.MediaPlayerAudioDevice, myOnMediaPlayerAudioDeviceInternalEventCallback = OnMediaPlayerAudioDeviceInternal);
             Manager.AttachEvent(vlcEventManager, EventTypes.MediaPlayerChapterChanged, myOnMediaPlayerChapterChangedInternalEventCallback = OnMediaPlayerChapterChangedInternal);
+            Manager.AttachEvent(vlcEventManager, EventTypes.MediaPlayerRecordChanged, myOnMediaPlayerRecordChangedInternalEventCallback = OnMediaPlayerRecordChangedInternal);
             vlcEventManager.Dispose();
         }
 
@@ -427,6 +428,7 @@ namespace Vlc.DotNet.Core
             Manager.DetachEvent(vlcEventManager, EventTypes.MediaPlayerAudioVolume, myOnMediaPlayerAudioVolumeInternalEventCallback);
             Manager.DetachEvent(vlcEventManager, EventTypes.MediaPlayerAudioDevice, myOnMediaPlayerAudioDeviceInternalEventCallback);
             Manager.DetachEvent(vlcEventManager, EventTypes.MediaPlayerChapterChanged, myOnMediaPlayerChapterChangedInternalEventCallback);
+            Manager.DetachEvent(vlcEventManager, EventTypes.MediaPlayerRecordChanged, myOnMediaPlayerRecordChangedInternalEventCallback);
             vlcEventManager.Dispose();
         }
     }

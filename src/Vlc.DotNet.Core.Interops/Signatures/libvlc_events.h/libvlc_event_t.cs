@@ -112,6 +112,9 @@ namespace Vlc.DotNet.Core.Interops.Signatures
             public MediaPlayerAudioDevice MediaPlayerAudioDevice;
 
             [FieldOffset(0)]
+            public MediaPlayerRecordChanged MediaPlayerRecordChanged;
+
+            [FieldOffset(0)]
             public RendererDiscovererItemAdded RendererDiscovererItemAdded;
 
             [FieldOffset(0)]
@@ -171,6 +174,13 @@ namespace Vlc.DotNet.Core.Interops.Signatures
     public struct MediaPlayerChapterChanged
     {
         public int NewChapter;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MediaPlayerRecordChanged
+    {
+        public IntPtr FileName;
+        public bool Recording;
     }
 
     [StructLayout(LayoutKind.Sequential)]
